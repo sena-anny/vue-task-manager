@@ -47,6 +47,43 @@ describe('KbnButton', () => {
           expect(button.attributes().disabled).to.equal('disabled')
         })
       })
+
+      describe('false', () => {
+        it('disabled属性が付与されていないこと', () => {
+          const button = mount(KbnButton, {
+            propsData: { disabled: true }
+          })
+          expect(button.attributes().disabled).to.equal('undefined')
+        })
+      })
+
+      describe('イベント', () => {
+        describe('click', () => {
+          it('発行されていること', () => {
+            const button = mount(KbnButton)
+            button.trigger('click')
+            expect(button.emitted().click.length).to.equal(1)
+          })
+        })
+      })
+
+      describe('スロット', () => {
+        describe('コンテンツ挿入あり', () => {
+          it('挿入されていること', () => {
+            const button = mount(KbnButton, {
+              slots: { default: '<p>hello</p>' }
+            })
+            expect(button.text()).to.equal('hello')
+          })
+        })
+
+        describe('コンテンツ挿入なし', () => {
+          it('挿入されていないこと', () => {
+            const button = mount(KbnButton)
+            expect(button.text()).to.equal('')
+          })
+        })
+      })
     })
   })
 })

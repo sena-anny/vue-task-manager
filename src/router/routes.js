@@ -12,7 +12,7 @@ export default [{
 }, {
   path: '/tasks/:id',
   component: KbnTaskDetailModal,
-  meta: {requiresAuth: true }
+  meta: { requiresAuth: true }
 }, {
   path: '*',
   redirect: '/'
