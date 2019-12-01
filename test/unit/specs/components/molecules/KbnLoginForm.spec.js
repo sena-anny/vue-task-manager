@@ -4,7 +4,7 @@ import KbnLoginForm from '@/components/molecules/KbnLoginForm.vue'
 describe('KbnLoginForm', () => {
   describe('プロパティ', () => {
     describe('validation', () => {
-      let KbnLoginForm
+      let loginForm
       beforeEach(done => {
         loginForm = mount(KbnLoginForm, {
           propsData: { onlogin: () => {} }
@@ -160,7 +160,7 @@ describe('KbnLoginForm', () => {
             expect(loginForm.vm.disableLoginAction).to.equal(true) // ログインアクション不可
 
             loginForm.vm.$nextTick(() => {
-              expect( onloginStub.called).to.equal(true) //resolve
+              expect(onloginStub.called).to.equal(true) // resolve
               const authInfo = onloginStub.args[0][0]
               expect(authInfo.email).to.equal(loginForm.vm.email)
               expect(authInfo.password).to.equal(loginForm.vm.password)
@@ -183,7 +183,7 @@ describe('KbnLoginForm', () => {
             expect(loginForm.vm.disableLoginAction).to.equal(true) // ログインアクション不可
 
             loginForm.vm.$nextTick(() => {
-              expect( onloginStub.called).to.equal(true) //reject
+              expect(onloginStub.called).to.equal(true) // reject
               const authInfo = onloginStub.args[0][0]
               expect(authInfo.email).to.equal(loginForm.vm.email)
               expect(authInfo.password).to.equal(loginForm.vm.password)
