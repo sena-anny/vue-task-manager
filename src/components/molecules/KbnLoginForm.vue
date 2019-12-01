@@ -90,8 +90,8 @@ export default {
       const validation = this.validation
       const fields = Object.keys(validation)
       let valid = true
-      for (let i=0; i < fields.length; i++) {
-        const field = fileds[i]
+      for (let i=0 ; i < fields.length; i++) {
+        const field = fields[i]
         valid = Object.keys(validation[field]).every(key => validation[field][key])
         if (!valid) { break }
       }
