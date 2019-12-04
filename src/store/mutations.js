@@ -2,7 +2,7 @@ import * as types from './mutation-types'
 
 export default {
   [types.AUTH_LOGIN] (state, payload) {
-    throw new Error('AUTH_LOGIN mutation shold be implemeted')
+    state.auth = payload
   },
   [types.FETCH_ALL_TASKLIST] (state, payload) {
     throw new Error('FETCH_ALL_TASKLIST mutation shold be implemeted')
