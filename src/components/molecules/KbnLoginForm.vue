@@ -56,9 +56,9 @@ const REGEX_EMAIL = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))
 const required = val => !!val.trim()
 export default {
   name: 'KbnLoginForm',
-  components: [
+  components: {
     KbnButton
-  ],
+  },
   props: {
     onlogin: {
       type: Function,
@@ -98,7 +98,7 @@ export default {
       return valid
     },
 
-    disabledLoginAction () {
+    disableLoginAction () {
       return !this.valid || this.progress
     }
   },
@@ -109,7 +109,7 @@ export default {
     },
 
     handleClick (ev) {
-      if (this.disabledLoginAction) { return }
+      if (this.disableLoginAction) { return }
       this.progress = true
       this.error = ''
 
